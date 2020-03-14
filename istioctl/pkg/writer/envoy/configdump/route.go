@@ -111,6 +111,9 @@ func (c *ConfigWriter) retrieveSortedRouteSlice() ([]*xdsapi.RouteConfiguration,
 			if err != nil {
 				return nil, err
 			}
+			if routeTyped.Name == "" {
+				continue
+			}
 			routes = append(routes, routeTyped)
 		}
 	}

@@ -526,6 +526,30 @@
             ],
             "validateClusters": false
           }
+        },
+        {
+          "route_config": {
+            "@type": "type.googleapis.com/envoy.api.v2.RouteConfiguration",
+            "virtual_hosts": [
+              {
+                "name": "backend",
+                "domains": [
+                  "*"
+                ],
+                "routes": [
+                  {
+                    "match": {
+                      "prefix": "/stats/prometheus"
+                    },
+                    "route": {
+                      "cluster": "prometheus_stats"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "last_updated": "2020-03-08T02:29:41.609Z"
         }
       ],
       "dynamicRouteConfigs": [
